@@ -1,3 +1,17 @@
+/*
+ Arduino Library for Analog Devices ADXL362 - Micropower 3-axis accelerometer
+ go to https://www.analog.com/adxl362 for datasheet
+ 
+ 
+ License: CC BY-SA 3.0: Creative Commons Share-alike 3.0. Feel free 
+ to use and abuse this code however you'd like. If you find it useful
+ please attribute, and SHARE-ALIKE!
+ 
+ Created June 2012
+ by Anne Mahaffey - hosted on https://github.com/annem/ADXL362
+ 
+ */ 
+
 #include "Arduino.h"
 
 #ifndef ADXL362_h
