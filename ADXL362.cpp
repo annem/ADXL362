@@ -85,6 +85,29 @@ int ADXL362::readTemp(){
   if (debugSerial) {Serial.print("\tTEMP = "); Serial.print(TEMP); }
 }
 
+void ADXL362::readXYZData(int XData, int YData, int ZData){
+  
+  // burst SPI read
+  // A burst read of all three axis is required to guarantee all measurements correspond to same sample time
+  digitalWrite(slaveSelectPin, LOW);
+  SPI.transfer(0x0B);  // read instruction
+  SPI.transfer(0x0E);  // Start at XData Reg
+  XData = SPI.transfer(0x00);
+  XData = XData + (SPI.transfer(0x00) << 8);
+  YData = SPI.transfer(0x00);
+  YData = YData + (SPI.transfer(0x00) << 8);
+  ZData = SPI.transfer(0x00);
+  ZData = ZData + (SPI.transfer(0x00) << 8);
+  digitalWrite(slaveSelectPin, HIGH);
+  
+  if (debugSerial) {
+	Serial.print(  "XDATA = "); Serial.print(XData); 
+	Serial.print(  "\tYDATA = "); Serial.print(YData); 
+	Serial.print(  "\tZDATA = "); Serial.print(ZData); 
+	}
+
+}
+
 
 
 void ADXL362::setupDCActivityInterrupt(int threshold, byte time){

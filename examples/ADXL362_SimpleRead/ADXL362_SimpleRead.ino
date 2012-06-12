@@ -25,6 +25,7 @@ ADXL362 xl;
 
 int temp;
 int XValue, YValue, ZValue;
+int *XYZData;
 
 void setup(){
     Serial.begin(9600);
@@ -36,13 +37,11 @@ void setup(){
 }
 
 void loop(){
-    XValue = xl.readXData();
-    YValue = xl.readYData();
-    ZValue = xl.readZData();
-    temp   = xl.readTemp();
-  
+    
+    // read all three axis in burst to ensure all measurements correspond to same sample time
+    xl.readXYZData(XValue, YValue, ZValue);  	
+    temp   = xl.readTemp();  
     Serial.println();
     delay(100);                // Arbitrary delay to make serial monitor easier to observe
 }
-
 
