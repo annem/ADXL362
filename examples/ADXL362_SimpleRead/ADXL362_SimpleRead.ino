@@ -24,8 +24,8 @@ SCLK, MISO, MOSI, and DP 10 of Arduino
 ADXL362 xl;
 
 int temp;
-int XValue, YValue, ZValue;
-int *XYZData;
+int XValue, YValue, ZValue, Temperature;
+
 
 void setup(){
     Serial.begin(9600);
@@ -39,9 +39,7 @@ void setup(){
 void loop(){
     
     // read all three axis in burst to ensure all measurements correspond to same sample time
-    xl.readXYZData(XValue, YValue, ZValue);  	
-    temp   = xl.readTemp();  
-    Serial.println();
+    xl.readXYZTData(XValue, YValue, ZValue, Temperature);  	 
     delay(100);                // Arbitrary delay to make serial monitor easier to observe
 }
 

@@ -32,7 +32,7 @@ public:
 	int readXData();
 	int readYData();
 	int readZData();
-	void readXYZData(int XData, int YData, int ZData);
+	void readXYZTData(int XData, int YData, int ZData, int Temperature);
 	int readTemp();
 	
 	//

@@ -81,11 +81,11 @@ int ADXL362::readZData(){
 }
 
 int ADXL362::readTemp(){
-  int TEMP = SPIreadOneRegister(0x14);
+  int TEMP = SPIreadTwoRegisters(0x14);
   if (debugSerial) {Serial.print("\tTEMP = "); Serial.print(TEMP); }
 }
 
-void ADXL362::readXYZData(int XData, int YData, int ZData){
+void ADXL362::readXYZTData(int XData, int YData, int ZData, int Temperature){
   
   // burst SPI read
   // A burst read of all three axis is required to guarantee all measurements correspond to same sample time
@@ -98,12 +98,15 @@ void ADXL362::readXYZData(int XData, int YData, int ZData){
   YData = YData + (SPI.transfer(0x00) << 8);
   ZData = SPI.transfer(0x00);
   ZData = ZData + (SPI.transfer(0x00) << 8);
+  Temperature = SPI.transfer(0x00);
+  Temperature = Temperature + (SPI.transfer(0x00) << 8);
   digitalWrite(slaveSelectPin, HIGH);
   
   if (debugSerial) {
 	Serial.print(  "XDATA = "); Serial.print(XData); 
 	Serial.print(  "\tYDATA = "); Serial.print(YData); 
 	Serial.print(  "\tZDATA = "); Serial.print(ZData); 
+	Serial.print(  "\tTemperature = "); Serial.println(Temperature);
 	}
 
 }
