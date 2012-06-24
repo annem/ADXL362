@@ -1,6 +1,6 @@
 /*
  Arduino Library for Analog Devices ADXL362 - Micropower 3-axis accelerometer
- go to https://www.analog.com/adxl362 for datasheet
+ go to http://www.analog.com/ADXL362 for datasheet
  
  
  License: CC BY-SA 3.0: Creative Commons Share-alike 3.0. Feel free 
@@ -8,7 +8,7 @@
  please attribute, and SHARE-ALIKE!
  
  Created June 2012
- by Anne Mahaffey - hosted on https://github.com/annem/ADXL362
+ by Anne Mahaffey - hosted on http://annem.github.com/ADXL362
  
  */ 
 
@@ -42,6 +42,15 @@ public:
 	void setupDCInactivityInterrupt(int threshold, int time);
     void setupACActivityInterrupt(int threshold, byte time);
 	void setupACInactivityInterrupt(int threshold, int time);
+	
+	// need to add the following functions
+	// void mapINT1(
+	// void mapINT2
+	// void autoSleep
+	// void activityInterruptControl
+	//		-Activity, Inactivity, Both
+	//		- Referenced, Absolute
+	//		- Free Fall, Linked Mode, Loop Mode
 	
 	
 	void checkAllControlRegs();

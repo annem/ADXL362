@@ -1,7 +1,7 @@
 /*
  ADXL362_SimpleRead.ino -  Simple XYZ axis reading example
  for Analog Devices ADXL362 - Micropower 3-axis accelerometer
- go to https://www.analog.com/adxl362 for datasheet
+ go to http://www.analog.com/ADXL362 for datasheet
  
  
  License: CC BY-SA 3.0: Creative Commons Share-alike 3.0. Feel free 
@@ -9,7 +9,7 @@
  please attribute, and SHARE-ALIKE!
  
  Created June 2012
- by Anne Mahaffey - hosted on https://github.com/annem/ADXL362
+ by Anne Mahaffey - hosted on http://annem.github.com/ADXL362
 
 Connect SCLK, MISO, MOSI, and CSB of ADXL362 to
 SCLK, MISO, MOSI, and DP 10 of Arduino 

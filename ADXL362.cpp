@@ -1,6 +1,6 @@
 /*
  Arduino Library for Analog Devices ADXL362 - Micropower 3-axis accelerometer
- go to https://www.analog.com/adxl362 for datasheet
+ go to http://www.analog.com/ADXL362 for datasheet
  
  
  License: CC BY-SA 3.0: Creative Commons Share-alike 3.0. Feel free 
@@ -8,7 +8,7 @@
  please attribute, and SHARE-ALIKE!
  
  Created June 2012
- by Anne Mahaffey - hosted on https://github.com/annem/ADXL362
+ by Anne Mahaffey - hosted on http://annem.github.com/ADXL362
  
  */ 
 
@@ -29,6 +29,7 @@ ADXL362::ADXL362() {
 //  Initial SPI setup, soft reset of device
 //
 void ADXL362::begin() {
+  pinMode(slaveSelectPin, OUTPUT);
   SPI.begin();
   SPI.setDataMode(SPI_MODE0);	//CPHA = CPOL = 0    MODE = 0
   delay(1000);
@@ -194,7 +195,7 @@ void ADXL362::checkAllControlRegs(){
   digitalWrite(slaveSelectPin, LOW);
   SPI.transfer(0x0B);  // read instruction
   SPI.transfer(0x20);  // Start burst read at Reg 20
-  Serial.println("Start Burst Read of all Control Regs:");
+  Serial.println("Start Burst Read of all Control Regs - Library version 6-24-2012:");
   Serial.print("Reg 20 = "); 	Serial.println(SPI.transfer(0x00), HEX);
   Serial.print("Reg 21 = "); 	Serial.println(SPI.transfer(0x00), HEX);
   Serial.print("Reg 22 = "); 	Serial.println(SPI.transfer(0x00), HEX);
