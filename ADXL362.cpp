@@ -67,23 +67,25 @@ void ADXL362::beginMeasure() {
 int ADXL362::readXData(){
   int XDATA = SPIreadTwoRegisters(0x0E);
   if (debugSerial) {Serial.print(  "XDATA = "); Serial.print(XDATA); }
+  return XDATA;
 }
 
 int ADXL362::readYData(){
   int YDATA = SPIreadTwoRegisters(0x10);
   if (debugSerial) {Serial.print(  "\tYDATA = "); Serial.print(YDATA); }
-
+  return YDATA;
 }
 
 int ADXL362::readZData(){
   int ZDATA = SPIreadTwoRegisters(0x12);
   if (debugSerial) {Serial.print(  "\tZDATA = "); Serial.print(ZDATA); }
-
+  return ZDATA;
 }
 
 int ADXL362::readTemp(){
   int TEMP = SPIreadTwoRegisters(0x14);
   if (debugSerial) {Serial.print("\tTEMP = "); Serial.print(TEMP); }
+  return TEMP;
 }
 
 void ADXL362::readXYZTData(int XData, int YData, int ZData, int Temperature){
