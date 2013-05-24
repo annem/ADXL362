@@ -11,6 +11,9 @@
  Created June 2012
  by Anne Mahaffey - hosted on http://annem.github.com/ADXL362
 
+ Modified May 2013
+ by Jonathan Ruiz de Garibay
+ 
 Connect SCLK, MISO, MOSI, and CSB of ADXL362 to
 SCLK, MISO, MOSI, and DP 10 of Arduino 
 (check http://arduino.cc/en/Reference/SPI for details)
@@ -20,16 +23,14 @@ SCLK, MISO, MOSI, and DP 10 of Arduino
 #include <SPI.h>
 #include <ADXL362.h>
 
-
 ADXL362 xl;
 
 int temp;
 int XValue, YValue, ZValue, Temperature;
 
-
 void setup(){
     Serial.begin(9600);
-    xl.begin();                   // Setup SPI protocol, issue device soft reset
+    xl.begin(10);                   // Setup SPI protocol, issue device soft reset
     xl.beginMeasure();            // Switch ADXL362 to measure mode  
     xl.checkAllControlRegs();     // Burst Read all Control Registers, to check for proper setup
 	
@@ -39,7 +40,15 @@ void setup(){
 void loop(){
     
     // read all three axis in burst to ensure all measurements correspond to same sample time
-    xl.readXYZTData(XValue, YValue, ZValue, Temperature);  	 
+    xl.readXYZTData(XValue, YValue, ZValue, Temperature);  
+    Serial.print("XVALUE=");
+    Serial.println(XValue);	 
+    Serial.print("YVALUE=");
+    Serial.println(YValue);	 
+    Serial.print("ZVALUE=");
+    Serial.println(ZValue);	 
+    Serial.print("TEMPERATURE=");
+    Serial.println(Temperature);	 
     delay(100);                // Arbitrary delay to make serial monitor easier to observe
 }
 

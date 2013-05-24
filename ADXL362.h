@@ -10,13 +10,15 @@
  Created June 2012
  by Anne Mahaffey - hosted on http://annem.github.com/ADXL362
  
+ Modified May 2013
+ by Jonathan Ruiz de Garibay
+
  */ 
 
 #include "Arduino.h"
 
 #ifndef ADXL362_h
 #define ADXL362_h
-
 
 class ADXL362
 {
@@ -27,7 +29,7 @@ public:
 	//
 	// Basic Device control and readback functions
 	//
-	void begin(); 		
+	void begin(int chipSelectPin); 		
 	void beginMeasure(); 
 	int readXData();
 	int readYData();
@@ -52,19 +54,15 @@ public:
 	//		- Referenced, Absolute
 	//		- Free Fall, Linked Mode, Loop Mode
 	
-	
 	void checkAllControlRegs();
 	
+private:
 	
 	//  Low-level SPI control, to simplify overall coding
 	byte SPIreadOneRegister(byte regAddress);
 	void SPIwriteOneRegister(byte regAddress, byte regValue);
 	int  SPIreadTwoRegisters(byte regAddress);
 	void SPIwriteTwoRegisters(byte regAddress, int twoRegValue);
-
-	
-private:
-
 };
 
 #endif
