@@ -19,7 +19,7 @@
 #include <ADXL362.h>
 #include <SPI.h>
 
-#define ADXL362_DEBUG
+//#define ADXL362_DEBUG
 
 int slaveSelectPin = 10;
 
@@ -119,7 +119,7 @@ int ADXL362::readTemp(){
 	return TEMP;
 }
 
-void ADXL362::readXYZTData(int XData, int YData, int ZData, int Temperature){
+void ADXL362::readXYZTData(int &XData, int &YData, int &ZData, int &Temperature){
 	  // burst SPI read
 	  // A burst read of all three axis is required to guarantee all measurements correspond to same sample time
 	  digitalWrite(slaveSelectPin, LOW);
