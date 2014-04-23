@@ -27,7 +27,7 @@ public:
 	//
 	// Basic Device control and readback functions
 	//
-	void begin(); 		
+	void begin(uint8_t csPin = 10); 		
 	void beginMeasure(); 
 	int readXData();
 	int readYData();
