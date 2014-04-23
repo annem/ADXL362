@@ -16,7 +16,7 @@
 #include <ADXL362.h>
 #include <SPI.h>
 
-const int slaveSelectPin = 10;
+static uint8_t slaveSelectPin = 10;
 const bool debugSerial = 1;
 
 ADXL362::ADXL362() {
@@ -28,7 +28,8 @@ ADXL362::ADXL362() {
 //  begin()
 //  Initial SPI setup, soft reset of device
 //
-void ADXL362::begin() {
+void ADXL362::begin(uint8_t csPin) {
+  slaveSelectPin = csPin;
   pinMode(slaveSelectPin, OUTPUT);
   SPI.begin();
   SPI.setDataMode(SPI_MODE0);	//CPHA = CPOL = 0    MODE = 0
@@ -195,7 +196,7 @@ void ADXL362::checkAllControlRegs(){
   digitalWrite(slaveSelectPin, LOW);
   SPI.transfer(0x0B);  // read instruction
   SPI.transfer(0x20);  // Start burst read at Reg 20
-  Serial.println("Start Burst Read of all Control Regs - Library version 6-24-2012:");
+  Serial.println("Start Burst Read of all Control Regs - Library version 2014-04-23:");
   Serial.print("Reg 20 = "); 	Serial.println(SPI.transfer(0x00), HEX);
   Serial.print("Reg 21 = "); 	Serial.println(SPI.transfer(0x00), HEX);
   Serial.print("Reg 22 = "); 	Serial.println(SPI.transfer(0x00), HEX);
