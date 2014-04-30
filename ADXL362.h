@@ -3,12 +3,11 @@
  go to http://www.analog.com/ADXL362 for datasheet
  
  
- License: CC BY-SA 3.0: Creative Commons Share-alike 3.0. Feel free 
- to use and abuse this code however you'd like. If you find it useful
- please attribute, and SHARE-ALIKE!
- 
- Created June 2012
- by Anne Mahaffey - hosted on http://annem.github.com/ADXL362
+ License: GNU GPLv3 or later
+
+ Copyright 2012 Anne Mahaffey
+
+ hosted on http://annem.github.com/ADXL362
  
  */ 
 
