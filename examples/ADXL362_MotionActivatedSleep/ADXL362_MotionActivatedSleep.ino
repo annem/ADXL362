@@ -7,13 +7,9 @@ go to http://www.analog.com/ADXL362 for datasheet
 Arduino will "go to sleep" when circuit has been motionless for
 a short period of time.  Arduino will "wake-up" when moved.
 
+License: GNU GPLv3 or later
 
-License: CC BY-SA 3.0: Creative Commons Share-alike 3.0. Feel free 
-to use and abuse this code however you'd like. If you find it useful
-please attribute, and SHARE-ALIKE!
-
-Created June 2012
-by Anne Mahaffey - hosted on http://annem.github.com/ADXL362
+Copyright 2012 Anne Mahaffey
 
 Connect SCLK, MISO, MOSI, and CSB of ADXL362 to
 SCLK, MISO, MOSI, and DP 10 of Arduino 
