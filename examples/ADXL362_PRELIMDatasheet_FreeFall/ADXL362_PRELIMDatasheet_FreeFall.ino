@@ -95,7 +95,7 @@ void setup(){
 void loop(){
     
     // read all three axis in burst to ensure all measurements correspond to same sample time
-    xl.readXYZTData(XValue, YValue, ZValue, Temperature);  
+    xl.readXYZTData(&XValue, &YValue, &ZValue, &Temperature);   
     temp = digitalRead(2);
     Serial.print("Int2 is ");
     Serial.print(temp);

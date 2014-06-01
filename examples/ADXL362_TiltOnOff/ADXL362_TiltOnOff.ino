@@ -120,7 +120,7 @@ void loop(){
   else{
     delay(10);
     digitalWrite(7, HIGH);    // Turn on LED as visual indicator of awake
-    xl.readXYZTData(XValue, YValue, ZValue, Temperature);  	     
+    xl.readXYZTData(&XValue, &YValue, &ZValue, &Temperature);  	     
   }
   // give circuit time to settle after wakeup
   delay(20);
