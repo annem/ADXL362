@@ -39,7 +39,7 @@ void setup(){
 void loop(){
     
     // read all three axis in burst to ensure all measurements correspond to same sample time
-    xl.readXYZTData(XValue, YValue, ZValue, Temperature);  	 
+    xl.readXYZTData(&XValue, &YValue, &ZValue, &Temperature);  	 
     delay(100);                // Arbitrary delay to make serial monitor easier to observe
 }
 
