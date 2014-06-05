@@ -16,7 +16,7 @@
 #include <ADXL362.h>
 #include <SPI.h>
 
-const int slaveSelectPin = 10;
+const int16_t slaveSelectPin = 10;
 const bool debugSerial = 1;
 
 ADXL362::ADXL362() {
@@ -64,29 +64,29 @@ void ADXL362::beginMeasure() {
 //  readXData(), readYData(), readZData(), readTemp()
 //  Read X, Y, Z, and Temp registers
 //
-int ADXL362::readXData(){
-  int XDATA = SPIreadTwoRegisters(0x0E);
+int16_t ADXL362::readXData(){
+  int16_t XDATA = SPIreadTwoRegisters(0x0E);
   if (debugSerial) {Serial.print(  "XDATA = "); Serial.print(XDATA); }
 }
 
-int ADXL362::readYData(){
-  int YDATA = SPIreadTwoRegisters(0x10);
+int16_t ADXL362::readYData(){
+  int16_t YDATA = SPIreadTwoRegisters(0x10);
   if (debugSerial) {Serial.print(  "\tYDATA = "); Serial.print(YDATA); }
 
 }
 
-int ADXL362::readZData(){
-  int ZDATA = SPIreadTwoRegisters(0x12);
+int16_t ADXL362::readZData(){
+  int16_t ZDATA = SPIreadTwoRegisters(0x12);
   if (debugSerial) {Serial.print(  "\tZDATA = "); Serial.print(ZDATA); }
 
 }
 
-int ADXL362::readTemp(){
-  int TEMP = SPIreadTwoRegisters(0x14);
+int16_t ADXL362::readTemp(){
+  int16_t TEMP = SPIreadTwoRegisters(0x14);
   if (debugSerial) {Serial.print("\tTEMP = "); Serial.print(TEMP); }
 }
 
-void ADXL362::readXYZTData(int XData, int YData, int ZData, int Temperature){
+void ADXL362::readXYZTData(int16_t XData, int16_t YData, int16_t ZData, int16_t Temperature){
   
   // burst SPI read
   // A burst read of all three axis is required to guarantee all measurements correspond to same sample time
@@ -114,7 +114,7 @@ void ADXL362::readXYZTData(int XData, int YData, int ZData, int Temperature){
 
 
 
-void ADXL362::setupDCActivityInterrupt(int threshold, byte time){
+void ADXL362::setupDCActivityInterrupt(int16_t threshold, byte time){
   //  Setup motion and time thresholds
   SPIwriteTwoRegisters(0x20, threshold);
   SPIwriteOneRegister(0x22, time);
@@ -132,7 +132,7 @@ void ADXL362::setupDCActivityInterrupt(int threshold, byte time){
   }
 }
 
-void ADXL362::setupACActivityInterrupt(int threshold, byte time){
+void ADXL362::setupACActivityInterrupt(int16_t threshold, byte time){
   //  Setup motion and time thresholds
   SPIwriteTwoRegisters(0x20, threshold);
   SPIwriteOneRegister(0x22, time);
@@ -150,7 +150,7 @@ void ADXL362::setupACActivityInterrupt(int threshold, byte time){
   }
 }
 
-void ADXL362::setupDCInactivityInterrupt(int threshold, int time){
+void ADXL362::setupDCInactivityInterrupt(int16_t threshold, int16_t time){
   // Setup motion and time thresholds
   SPIwriteTwoRegisters(0x23, threshold);
   SPIwriteTwoRegisters(0x25, time);
@@ -169,7 +169,7 @@ void ADXL362::setupDCInactivityInterrupt(int threshold, int time){
 }
 
 
-void ADXL362::setupACInactivityInterrupt(int threshold, int time){
+void ADXL362::setupACInactivityInterrupt(int16_t threshold, int16_t time){
   //  Setup motion and time thresholds
   SPIwriteTwoRegisters(0x23, threshold);
   SPIwriteTwoRegisters(0x25, time);
@@ -241,8 +241,8 @@ void ADXL362::SPIwriteOneRegister(byte regAddress, byte regValue){
   digitalWrite(slaveSelectPin, HIGH);
 }
 
-int ADXL362::SPIreadTwoRegisters(byte regAddress){
-  int twoRegValue = 0;
+int16_t ADXL362::SPIreadTwoRegisters(byte regAddress){
+  int16_t twoRegValue = 0;
   
   digitalWrite(slaveSelectPin, LOW);
   SPI.transfer(0x0B);  // read instruction
@@ -253,7 +253,7 @@ int ADXL362::SPIreadTwoRegisters(byte regAddress){
 
   return twoRegValue;
 }  
-void ADXL362::SPIwriteTwoRegisters(byte regAddress, int twoRegValue){
+void ADXL362::SPIwriteTwoRegisters(byte regAddress, int16_t twoRegValue){
   
   byte twoRegValueH = twoRegValue >> 8;
   byte twoRegValueL = twoRegValue;

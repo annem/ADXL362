@@ -29,19 +29,19 @@ public:
 	//
 	void begin(); 		
 	void beginMeasure(); 
-	int readXData();
-	int readYData();
-	int readZData();
-	void readXYZTData(int XData, int YData, int ZData, int Temperature);
-	int readTemp();
+	int16_t readXData();
+	int16_t readYData();
+	int16_t readZData();
+	void readXYZTData(int16_t XData, int16_t YData, int16_t ZData, int16_t Temperature);
+	int16_t readTemp();
 	
 	//
 	// Activity/Inactivity interrupt functions
 	//
-	void setupDCActivityInterrupt(int threshold, byte time);	
-	void setupDCInactivityInterrupt(int threshold, int time);
-    void setupACActivityInterrupt(int threshold, byte time);
-	void setupACInactivityInterrupt(int threshold, int time);
+	void setupDCActivityInterrupt(int16_t threshold, byte time);	
+	void setupDCInactivityInterrupt(int16_t threshold, int16_t time);
+    void setupACActivityInterrupt(int16_t threshold, byte time);
+	void setupACInactivityInterrupt(int16_t threshold, int16_t time);
 	
 	// need to add the following functions
 	// void mapINT1(
@@ -59,8 +59,8 @@ public:
 	//  Low-level SPI control, to simplify overall coding
 	byte SPIreadOneRegister(byte regAddress);
 	void SPIwriteOneRegister(byte regAddress, byte regValue);
-	int  SPIreadTwoRegisters(byte regAddress);
-	void SPIwriteTwoRegisters(byte regAddress, int twoRegValue);
+	int16_t  SPIreadTwoRegisters(byte regAddress);
+	void SPIwriteTwoRegisters(byte regAddress, int16_t twoRegValue);
 
 	
 private:

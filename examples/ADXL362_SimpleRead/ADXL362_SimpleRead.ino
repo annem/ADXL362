@@ -23,8 +23,8 @@ SCLK, MISO, MOSI, and DP 10 of Arduino
 
 ADXL362 xl;
 
-int temp;
-int XValue, YValue, ZValue, Temperature;
+int16_t temp;
+int16_t XValue, YValue, ZValue, Temperature;
 
 
 void setup(){
