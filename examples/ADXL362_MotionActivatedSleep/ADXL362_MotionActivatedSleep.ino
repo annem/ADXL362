@@ -37,10 +37,10 @@ ADXL362 xl;
 //  Setup interrupt on Arduino
 //  See interrupt example at http://arduino.cc/en/Reference/AttachInterrupt
 //
-int16_t interruptPin = 2;          //Setup ADXL362 interrupt output to Interrupt 0 (digital pin 2)
-int16_t interruptStatus = 0;
+int interruptPin = 2;          //Setup ADXL362 interrupt output to Interrupt 0 (digital pin 2)
+int interruptStatus = 0;
 
-int16_t XValue, YValue, ZValue, Temperature;
+int XValue, YValue, ZValue, Temperature;
 
 
 

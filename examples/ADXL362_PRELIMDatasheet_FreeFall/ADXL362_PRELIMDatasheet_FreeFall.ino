@@ -24,10 +24,10 @@ SCLK, MISO, MOSI, and DP 10 of Arduino
 
 ADXL362 xl;
 
-const int16_t slaveSelectPin = 10;
+const int slaveSelectPin = 10;
 
-int16_t temp;
-int16_t XValue, YValue, ZValue, Temperature;
+int temp;
+int XValue, YValue, ZValue, Temperature;
 
 
 void setup(){
