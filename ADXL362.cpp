@@ -223,7 +223,7 @@ void ADXL362::checkAllControlRegs(){
 	SPI.transfer(0x0B);  // read instruction
 	SPI.transfer(0x20);  // Start burst read at Reg 20
 #ifdef ADXL362_DEBUG
-	Serial.println("Start Burst Read of all Control Regs - Library version 6-24-2012:");
+	Serial.println("Start Burst Read of all Control Regs - Library version 6-5-2014:");
 	Serial.print("Reg 20 = "); 	Serial.println(SPI.transfer(0x00), HEX);
 	Serial.print("Reg 21 = "); 	Serial.println(SPI.transfer(0x00), HEX);
 	Serial.print("Reg 22 = "); 	Serial.println(SPI.transfer(0x00), HEX);

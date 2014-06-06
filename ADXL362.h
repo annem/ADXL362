@@ -29,7 +29,7 @@ public:
 	//
 	// Basic Device control and readback functions
 	//
-	void begin(int16_t chipSelectPin); 		
+	void begin(int16_t chipSelectPin = 10); 		
 	void beginMeasure(); 
 	int16_t readXData();
 	int16_t readYData();
