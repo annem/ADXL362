@@ -72,6 +72,30 @@ void ADXL362::beginMeasure() {
 }
 
 //
+// setSensitivity(int sense)
+// set the G sensitivity, either ADXL362_2G, ADXL362_4G or ADXL362_8G
+// returns true if the register set was successful
+//
+void ADXL362::setRange(int sense)
+{
+	byte reg = SPIreadOneRegister(FILTER_CTL);
+	reg &= 0x3F; // mask out the sense bits;
+	reg |= (sense << RANGE); 
+	SPIwriteOneRegister(FILTER_CTL, reg);
+}
+
+//
+// setMeasureRate(int rate);
+// sets the sample rate of the adxl362, pg. 33 of datasheet.
+void ADXL362::setODR(int rate)
+{
+	byte reg = SPIreadOneRegister(FILTER_CTL);
+	reg &= 0xFC;
+	reg |= (rate << ODR);
+	SPIwriteOneRegister(FILTER_CTL, reg);
+}
+
+//
 //  readXData(), readYData(), readZData(), readTemp()
 //  Read X, Y, Z, and Temp registers
 //
