@@ -65,6 +65,7 @@ public:
 	void SPIwriteTwoRegisters(byte regAddress, int16_t twoRegValue);
 
 private:
+	int16_t slaveSelectPin;
 
 	
 };

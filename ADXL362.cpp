@@ -21,8 +21,6 @@
 
 //#define ADXL362_DEBUG
 
-int16_t slaveSelectPin = 10;
-
 ADXL362::ADXL362() {
 }
 
