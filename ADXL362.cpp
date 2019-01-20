@@ -26,7 +26,6 @@
 
 
 ADXL362::ADXL362() {
-
 }
 
 
@@ -44,7 +43,6 @@ void ADXL362::begin(int16_t chipSelectPin) {
 	// soft reset
 	SPIwriteOneRegister(0x1F, 0x52);  // Write to SOFT RESET, "R"
 	delay(10);
-	digitalWrite(slaveSelectPin, HIGH);
 	
 #ifdef ADXL362_DEBUG
 	Serial.println("Soft Reset\n");
@@ -56,6 +54,7 @@ void ADXL362::begin(int16_t chipSelectPin) {
 //  turn on Measurement mode - required after reset
 // 
 void ADXL362::beginMeasure() {
+
 	byte temp = SPIreadOneRegister(0x2D);	// read Reg 2D before modifying for measure mode
 
 #ifdef ADXL362_DEBUG
