@@ -28,6 +28,8 @@ class ADXL362
 public:
 
 	ADXL362();
+
+	int16_t slaveSelectPin = 10;
 	
 	//
 	// Basic Device control and readback functions

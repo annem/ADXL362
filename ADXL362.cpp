@@ -27,9 +27,6 @@
 
 ADXL362::ADXL362() {
 
-	int16_t slaveSelectPin = 10;
-
-
 }
 
 
