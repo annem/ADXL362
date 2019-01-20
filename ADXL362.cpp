@@ -12,6 +12,9 @@
 
  Modified May 2013
  by Jonathan Ruiz de Garibay
+
+  Modified January 2019
+ by Sebastian Dett
  
  */ 
 
@@ -21,9 +24,12 @@
 
 //#define ADXL362_DEBUG
 
-int16_t slaveSelectPin = 10;
 
 ADXL362::ADXL362() {
+
+	int16_t slaveSelectPin = 10;
+
+
 }
 
 
@@ -41,6 +47,8 @@ void ADXL362::begin(int16_t chipSelectPin) {
 	// soft reset
 	SPIwriteOneRegister(0x1F, 0x52);  // Write to SOFT RESET, "R"
 	delay(10);
+	digitalWrite(slaveSelectPin, HIGH);
+	
 #ifdef ADXL362_DEBUG
 	Serial.println("Soft Reset\n");
 #endif

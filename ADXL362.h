@@ -13,6 +13,9 @@
  Modified May 2013
  by Jonathan Ruiz de Garibay
 
+ Modified January 2019
+ by Sebastian Dett
+
  */ 
 
 #include "Arduino.h"
