@@ -17,6 +17,11 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      UNIVERSAL_LIBRARIES: |
+        # Install the ArduinoIoTCloud library from the repository
+        - source-path: ./
+        - name: Low-Power
+
       SKETCHES_REPORTS_PATH: sketches-reports
 
     strategy:
